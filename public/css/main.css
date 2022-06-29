@@ -1,0 +1,68 @@
+body {
+    background-color: #eeeeee;
+}
+header {
+    background-color: #222831;
+}
+#logo-main {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    height: 225px;
+}
+#logo {
+    margin: 0 auto;
+    width: 125px;
+    height: auto;
+    transform: scale(2.5);
+
+    z-index: -99;
+}
+
+#logo-title {
+    font-size: 40px;
+    margin-top: 20px;
+    color: white;
+    padding-top: 7px;
+    display: inline-block;
+}
+li {
+    padding: 20px;
+}
+#app-nav {
+    background-color: #393e46;
+}
+#app {
+    background-color: #222831;
+    background-color: #222831;
+}
+.item {
+    background-color: #393e46;
+    color: white;
+    padding: 14px 25px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.item:hover {
+    background-color: #00adb5;
+}
+
+.card-header {
+    background-color: #00adb5;
+}
+#login-btn {
+    background-color: #00adb5;
+}
+#reg-btn {
+    background-color: #00adb5;
+}
+
+#map {
+    height: 540px;
+}
+
+#report {
+    padding: 10px, 10px;
+}

@@ -1,0 +1,50 @@
+#logo-form {
+    margin: 0 auto;
+    padding-left: 25px;
+    width: 125px;
+    height: auto;
+    transform: scale(1.45);
+    z-index: -99;
+}
+#logo {
+    margin: 0 auto;
+    width: 125px;
+    height: auto;
+    transform: scale(2.5);
+
+    z-index: -99;
+}
+#map {
+    height: 540px;
+    width: 100%;
+}
+.report-btn {
+    background-color: #00adb5;
+}
+
+#btn-div {
+    display: flex;
+    justify-content: center;
+}
+label {
+    padding-top: 20px;
+}
+.leaflet-top.leaflet-right
+    .leaflet-control-layers:nth-child(3)
+    .leaflet-control-layers-toggle {
+    background-image: "image/icon.png";
+    height: 10px;
+    width: 10px;
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    font-size: 12px;
+}
+
+#map-label {
+    display: inline-block;
+    text-align: justify;
+}
+svg {
+    height: 10px;
+    width: 10px;
+}
