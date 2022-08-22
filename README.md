@@ -72,6 +72,7 @@ accepts images either from the device storage, or from the camera of capable dev
 containing images, the images are compressed to reduce the space required for the storage. The 
 limit for uploaded images is set to a total of 3 images and the maximum size of each image cannot 
 exceed 10MB. The accepted formats are JPG, JPEG and PNG.
+
 <h3>Report Statuses and their Description</h3>
 
 <table>
@@ -134,7 +135,7 @@ on the Users table is set to 1 (The user is banned from the website).
  <h2> Statistic Module</h2>
  
  <table>
- <caption> Cumulative Metrics for Evaluating Utility Performance</caption>
+ <caption> Table 3: Cumulative Metrics for Evaluating Utility Performance</caption>
  
  <tr>
     <th>Metric</th>
@@ -204,7 +205,7 @@ organisation as the report.</td>
 </tr>
 <tr> 
     <td> View Statistics </td>
-    <td>Permissions Required</td>
+    <td>Permissions Required</tFd>
 </tr>
 <tr> 
     <td> Function </td>
@@ -251,38 +252,41 @@ used to locally host and test the website. Additionally, for testing on mobile d
 used to expose the local server port to the internet. Ngrok version 2.3.40 was used.
 
 <h2>Graphical User Interface</h2>
-
 <table>
-    <caption> Software, Tools and Libraries Used </caption>
-    
-    <tr>
+    <caption>Table 5: Software, Tools and Libraries Used </caption>
+     <tr>
         <th>Tool/Software/Library Used </th>
         <th> Purpose </th>
     </tr>
     
-    <tr> 
+      <tr> 
         <td> Bootstrap </td>
         <td> To create responsive website components and speed up 
             development.</td>
     </tr>
-      <tr> 
+    
+     <tr> 
         <td> LeafletJS </td>
         <td> To create responsive map container.</td>
     </tr>
-      <tr> 
+    
+    <tr> 
         <td> OSM TIles </td>
-        <td>Free map tiles (see chapter 2 for more benefits).</td>
+        <td>Free map tiles</td>
     </tr>
-      <tr> 
+    
+    <tr> 
         <td> Blade Templating Engine </td>
         <td> Included in Laravel, used to pass data, and write conditional 
 statements in the views</td>
     </tr>
-      <tr> 
+    <tr> 
         <td> jQuery UI and jQuery </td>
         <td> To implement functionality such as the date picker as well as to 
 simplify ajax requests.</td>
     </tr>
+ </table>
+   
 
     <h3>Creating Reports Form</h3>
 The “Select an Issue” dropdown in the “Create Report” from was populated based on the selection 
@@ -415,3 +419,66 @@ service provider. The system will not allow users who do not have the appropriat
 perform the action. Furthermore, middleware can also be used to deny access to a resource before 
 passing the request to the controller. This is used in conjunction with the gates and policies to 
 control website access.
+
+    <table>
+        <caption> Middleware and their Functions </caption>
+        
+    <tr>
+        <th>Middleware Name </tr>
+        <th>Function</th>
+        </tr>
+    <tr>
+        <td>Auth</td>
+        <td> Included in LAravel. Redirects the user to login page if not logged in.</td>
+    </tr>
+      <tr>
+        <td>checkAdmin</td>
+        <td> Check if the user is an admin before 
+proceeding to the page.</td>
+    </tr>
+      <tr>
+        <td>checkUser</td>
+        <td> Check if the user is not admin before 
+proceeding to the page.</td>
+    </tr>
+      <tr>
+        <td>checkIfProvider</td>
+        <td> Check if the user is a Service Provider before 
+proceeding to the page</td>
+    </tr>
+      <tr>
+        <td>checkPhoneVerification</td>
+        <td> Checks if the user has verified the phone 
+number. Redirects to the verification page if 
+not.</td>
+    </tr>
+      <tr>
+        <td>checkBanned</td>
+        <td> Checks if the user is banned before proceeding. 
+Redirects user to login page with error 
+message.
+</td>
+    </tr>
+      <tr>
+        <td>Throttle</td>
+        <td> Limits request to the server to a specific 
+amount in a time frame.
+</td>
+    </tr>
+      <tr>
+        <td>XSS</td>
+        <td> Sanitizes Laravel data from any scripts or tags 
+entered by malicious users.
+</td>
+    </tr>
+    </table>
+    
+<h3>Protecting Against COmmon Risks </h3>
+The XSS middleware was used to sanitize user inputs. To protect against XSS threats.
+Laravel includes SQL injection protection if raw SQL queries were not used. All queries were 
+done using the query builder and Eloquent ORM which protected against this threat. Laravel also 
+includes a CSRF token which is used to protect against the CSRF attacks. The Insecure Direct 
+Object Reference and broken access was protected against by using strict access controls provided 
+by the gates, middleware, and policies. Finally, the broken authentication threat was reduced by 
+using the built-in throttle middleware to limit requests within a time frame for logins. This provides 
+some protection against brute force password hacking
