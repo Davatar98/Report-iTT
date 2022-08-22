@@ -346,7 +346,7 @@ Organisations table. If the domain existed, the isAdmin column is set to 1 and t
 the ID of the organisation the domain corresponds to. If the domain does not exist in the 
 Organisations table, the isAdmin attribute is set to 0 and the “Public” organisation ID (5) is 
 assigned to the user.
-    <h1> Home/ Map View</h1>
+    <h1> Home & Map View</h1>
 This was implemented using the LeafletJS plugin as well as GitHub packages
 for controlling icon colours and clustering. The map also contained controls for 
 filtering of the markers by status and service provider. The map used AJAX requests to load the 
@@ -363,7 +363,7 @@ of the marker popups.
 When a report is created, the submitted form request is sent to the “ReportController” controller. 
 The request is validated in the controller and then stored in the database.
 
-    <h3> Upvoting, Downvoting and Flagging functionality</h3>
+<h3>Upvoting, Downvoting and Flagging functionality</h3>
 This was implemented using Laravel Livewire. Like the “Create Report” form, the Livewire 
 components perform AJAX request “under the hood”, without need for creating it in the script tags 
 like before. This method was chosen as it reduced the development time.
@@ -425,15 +425,58 @@ perform the action. Furthermore, middleware can also be used to deny access to a
 passing the request to the controller. This is used in conjunction with the gates and policies to 
 control website access.
 
-    <table>
-        <caption>Table6: Middleware and their Functions </caption>
-        
+<table>
+    <caption> Table 6: Middleware and their Functions </caption>
+    
+   
+<tr>
+    <th>Middleware Name</th>
+    <th>Function</th>
+  </tr>
+  <tr>
+    <td>Auth</td>
+    <td>Included in Laravel. Redirects the user to login 
+page if not logged in</td>
+  </tr>
+  <tr>
+    <td>checkAdmin</td>
+    <td>Check if the user is an admin before 
+proceeding to the page</td>
+  </tr>
+ <tr>
+    <td>checkUser</td>
+    <td>Check if the user is not admin before 
+proceeding to the page</td>
+  </tr>
+  <tr>
+    <td>checkIfProvider</td>
+    <td>Check if the user is a Service Provider before 
+proceeding to the page.</td>
+  </tr>
+<tr>
+    <td>checkPhoneVerification</td>
+    <td>Checks if the user has verified the phone 
+number. Redirects to the verification page if 
+not.</td>
+  </tr>
+  <tr>
+    <td>checkBanned</td>
+    <td>Checks if the user is banned before proceeding. 
+Redirects user to login page with error 
+message.</td>
+  </tr>
     <tr>
-        <th>Middleware Name </tr>
-        <th>Function</th>
-        </tr>
-
-    </table>
+    <td>Throttle</td>
+    <td>Limits request to the server to a specific 
+amount in a time frame.</td>
+  </tr>
+    <tr>
+    <td>XSS</td>
+    <td>Sanitizes Laravel data from any scripts or tags 
+entered by malicious users.
+</td>
+  </tr>
+ </table>
     
 <h3>Protecting Against Common Risks </h3>
 The XSS middleware was used to sanitize user inputs. To protect against XSS threats.
