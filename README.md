@@ -187,6 +187,7 @@ Functionality of the website is restricted based on some characteristics of the
 users and the reports. This section explores some of the permissions requirements of the system.
 
 <table>
+    <br>
 <caption> Table 4: Functions and Required Permissions </caption>
 
 <tr> 
@@ -219,7 +220,7 @@ organisation as the report.</td>
 </tr>
 <tr> 
     <td> Can Vote or Flag </td>
-    <tdMust be a PUB-class user</td>
+    <td>Must be a PUB-class user</td>
 </tr>
 </table>
 
@@ -252,47 +253,51 @@ used to locally host and test the website. Additionally, for testing on mobile d
 used to expose the local server port to the internet. Ngrok version 2.3.40 was used.
 
 <h2>Graphical User Interface</h2>
+
 <table>
-    <caption>Table 5: Software, Tools and Libraries Used </caption>
+    <caption>Table 5: Software, Tools and Libraries Used</caption>
      <tr>
         <th>Tool/Software/Library Used </th>
         <th> Purpose </th>
     </tr>
     
-      <tr> 
-        <td> Bootstrap </td>
-        <td> To create responsive website components and speed up 
-            development.</td>
-    </tr>
+  <tr>
+    <td>Bootstrap</td>
+    <td>To create responsive website components and speed up 
+development.</td>
+   
+  </tr>
+  <tr>
+    <td>LeafletJS</td>
+    <td>To create responsive map container</td>
     
-     <tr> 
-        <td> LeafletJS </td>
-        <td> To create responsive map container.</td>
-    </tr>
+  </tr>
+     <tr>
+    <td>OSM Tiles</td>
+    <td>Free map tiles</td>
     
-    <tr> 
-        <td> OSM TIles </td>
-        <td>Free map tiles</td>
-    </tr>
+  </tr>
+     <tr>
+    <td>jQuery UI and jQuery</td>
+    <td>To implement functionality such as the date picker as well as to 
+simplify ajax requests</td>
     
-    <tr> 
-        <td> Blade Templating Engine </td>
-        <td> Included in Laravel, used to pass data, and write conditional 
+  </tr>
+     <tr>
+    <td>Blade Templating Engine</td>
+    <td>Included in Laravel, used to pass data, and write conditional 
 statements in the views</td>
-    </tr>
-    <tr> 
-        <td> jQuery UI and jQuery </td>
-        <td> To implement functionality such as the date picker as well as to 
-simplify ajax requests.</td>
-    </tr>
- </table>
+    
+  </tr>
+</table>
    
 
-    <h3>Creating Reports Form</h3>
+
+<h3>Creating Reports Form</h3>
 The “Select an Issue” dropdown in the “Create Report” from was populated based on the selection 
 made from the “Select a Service Provider” dropdown. This was also achieved with AJAX 
 requests. This was implemented such that only valid issues/faults can be reported to the correct 
-73
+
 service providers. The request used the route “'/report/create/getfaults/{providerID}” to pass the 
 request to the controller, “ReportController”. The method “getFaultNames($id)” queried the Faults 
 table using the ID parameter to return the list of faults.
@@ -421,59 +426,16 @@ passing the request to the controller. This is used in conjunction with the gate
 control website access.
 
     <table>
-        <caption> Middleware and their Functions </caption>
+        <caption>Table6: Middleware and their Functions </caption>
         
     <tr>
         <th>Middleware Name </tr>
         <th>Function</th>
         </tr>
-    <tr>
-        <td>Auth</td>
-        <td> Included in LAravel. Redirects the user to login page if not logged in.</td>
-    </tr>
-      <tr>
-        <td>checkAdmin</td>
-        <td> Check if the user is an admin before 
-proceeding to the page.</td>
-    </tr>
-      <tr>
-        <td>checkUser</td>
-        <td> Check if the user is not admin before 
-proceeding to the page.</td>
-    </tr>
-      <tr>
-        <td>checkIfProvider</td>
-        <td> Check if the user is a Service Provider before 
-proceeding to the page</td>
-    </tr>
-      <tr>
-        <td>checkPhoneVerification</td>
-        <td> Checks if the user has verified the phone 
-number. Redirects to the verification page if 
-not.</td>
-    </tr>
-      <tr>
-        <td>checkBanned</td>
-        <td> Checks if the user is banned before proceeding. 
-Redirects user to login page with error 
-message.
-</td>
-    </tr>
-      <tr>
-        <td>Throttle</td>
-        <td> Limits request to the server to a specific 
-amount in a time frame.
-</td>
-    </tr>
-      <tr>
-        <td>XSS</td>
-        <td> Sanitizes Laravel data from any scripts or tags 
-entered by malicious users.
-</td>
-    </tr>
+
     </table>
     
-<h3>Protecting Against COmmon Risks </h3>
+<h3>Protecting Against Common Risks </h3>
 The XSS middleware was used to sanitize user inputs. To protect against XSS threats.
 Laravel includes SQL injection protection if raw SQL queries were not used. All queries were 
 done using the query builder and Eloquent ORM which protected against this threat. Laravel also 
