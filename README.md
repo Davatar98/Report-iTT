@@ -1,5 +1,9 @@
+<h1> ReportITT Documentation </h1>
+This details the documentation for the website reporting system. This ReadMe documents the design and implementation of ReportITT, a crowdsourcing tool for reporting faults to local utility companies. If interested, please see the SRS and SDD documentation in the docs.
+
+
+
 <h1>Design </h1>
-This details the documentation for the website reporting system. This section includes the design features.
 
 <h2> System Overview</h2>
 
